@@ -1,9 +1,5 @@
 @extends('layouts.app')
-@section('link')
-<li class="nav-item">
-<a class="nav-link" href="{{route('category.index')}}">Home</a>
-</li>   
-@endsection
+
 @section('content')
 
 <div class="container">
@@ -44,14 +40,4 @@
        
     </div>
 </div>
-
-
-{{-- @foreach ($category as $item)
-    
-
-{{$item->title}}
-{{$item->photo}} 
-{{$item->body}}
-{{$item->caption}} --}}
-{{-- @endforeach --}}
 @endsection

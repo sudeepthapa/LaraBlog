@@ -62,7 +62,7 @@ class PostController extends Controller
         $post->photo = 'storage/'.$file_path;
         $post->save();
 
-        return redirect()->route('post.index')
+        return redirect()->route('home.profile')
             ->with('success','Contact Added Successfully');
     }
 

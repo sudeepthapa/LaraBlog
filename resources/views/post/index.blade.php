@@ -1,9 +1,5 @@
 @extends('layouts.app')
-@section('link')
-<li class="nav-item">
-<a class="nav-link" href="/post/home">Home</a>
-</li>   
-@endsection
+
 @section('content')
 
 <div class="container">
