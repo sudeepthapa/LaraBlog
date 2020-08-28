@@ -35,6 +35,20 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
+                <label for="body">Category</label>
+
+                {{-- <select name="category">
+                    <option value="">--Select--</option>
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{ $category->name }}</option>
+                    @endforeach
+                </select> --}}
+              </div>
+        </div>
+    </div> 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
                 <label for="photo">Photo:</label>
                 <input type="file" name="photo" class="form-control" value="{{old('photo')}}" placeholder="Enter photo" id="photo">
                 @error('photo')

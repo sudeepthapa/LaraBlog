@@ -18,8 +18,9 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->longText('body');
             $table->string('photo');
-            $table->string('caption');
-            // $table->string('likes');
+            $table->string('caption')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

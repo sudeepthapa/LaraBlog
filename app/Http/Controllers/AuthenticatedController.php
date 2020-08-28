@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Auth;
 
 class AuthenticatedController extends Controller
 {
@@ -16,8 +17,8 @@ class AuthenticatedController extends Controller
     }
     public function profile()
     {
-        $posts = Post::orderBy('created_at','desc')->get();
-        $count = Post::all()->count();   
-        return view('pages.profile')->with('posts',$posts)->with('count', $count);
+        $user = Auth::user();
+        $posts = $user->posts()->where('title','Blog Title One')->get();
+        return view('pages.profile')->with('posts',$posts);
     }
 }

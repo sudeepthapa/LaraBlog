@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Auth;
 
 class PostController extends Controller
 {
@@ -27,6 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
+        // fetch all categories
+        //send to view
         return view('post.createpost');
     }
 
@@ -42,10 +45,7 @@ class PostController extends Controller
         $request->validate([
             'title'=>'required | min:5',
             'body'=>'required',
-            'caption'=>'required',
-            // 'likes'=>'required',
-            'photo'=>'required',
-           
+            'photo'=>'required'
         ]);   
 
         // file handling
@@ -58,6 +58,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->caption = $request->caption;
+        $post->user_id = Auth::user()->id;
         // $post->likes = $request->likes;
         $post->photo = 'storage/'.$file_path;
         $post->save();
