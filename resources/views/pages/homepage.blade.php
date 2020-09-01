@@ -15,7 +15,7 @@
                                     <p>{{$post->body}}</p>                        
                                     <div class="d-flex justify-content-between">
                                         <div class="pr-5"><strong>{{ $post->category->title }} || {{ Carbon\Carbon::parse($post->created_at)->toDayDateTimeString()}}</strong></div>
-                                        <div class="pr-5"><strong> {{ $post->user->name }} </strong></div>
+                                        <div class="pr-5"> <a href="{{ route('author.profile', $post->user->id) }}"><strong> {{ $post->user->name }} </strong></a> </div>
                                     </div>
                                 </div>
                         

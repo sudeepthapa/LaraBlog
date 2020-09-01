@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 use Auth;
 
 class AuthenticatedController extends Controller
@@ -19,6 +20,13 @@ class AuthenticatedController extends Controller
     {
         $user = Auth::user();
         $posts = $user->posts;
-        return view('pages.profile')->with('posts',$posts);
+        return view('pages.profile')->with('posts',$posts)->with('user', $user);
+    }
+
+    public function authorProfile(Request $request, $id)
+    {
+        $user = User::find($id);
+        $posts = $user->posts;
+        return view('pages.profile')->with('posts',$posts)->with('user', $user);
     }
 }

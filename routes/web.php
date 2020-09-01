@@ -25,4 +25,6 @@ Route::resource('post', 'PostController')->middleware('auth');
 
 Route::resource('category', 'CategoryController')->middleware('auth');
 
+Route::get('/profile/{id}','AuthenticatedController@authorProfile')->middleware('auth')->name('author.profile');
+
 

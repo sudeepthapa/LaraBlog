@@ -3,22 +3,19 @@
 @section('content')
 
 <div class="container">
-
-
-
     <div class="card mt-5">
         <div class="card-header">
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-center">
-                    <div><img style="height: 200px; width:200px; border-radius:50%;" src="{{ asset(Auth::user()->avatar)?asset(Auth::user()->avatar): 'https://www.pngitem.com/pimgs/m/11-118241_cute-anime-vampire-girl-cute-vampire-anime-girl.png' }}" alt="profile"></div>
+                    <div><img style="height: 200px; width:200px; border-radius:50%;" src="{{ $user->avatar ? asset($user->avatar) : 'https://www.pngitem.com/pimgs/m/11-118241_cute-anime-vampire-girl-cute-vampire-anime-girl.png' }}" alt="profile"></div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-center">
-                    <div><h1>{{ Auth::user()->name }}</h1></div>
+                    <div><h1>{{ $user->name }}</h1></div>
                 </div>
             </div>
         </div>
@@ -27,7 +24,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-center">
-                    <div><h1>{{ Auth::user()->address }} | {{ Auth::user()->contact}}</h1></div>
+                    <div><h1>{{ $user->address }} | {{ $user->contact}}</h1></div>
                 </div>
             </div>
         </div>
@@ -35,7 +32,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-center">
-                    <div><h5>{{ Auth::user()->bio }}</h5></div>
+                    <div><h5>{{ $user->bio }}</h5></div>
                 </div>
             </div>
         </div>
@@ -43,7 +40,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-center">
-                    <div><h5>{{ Auth::user()->interest }}</h5></div>
+                    <div><h5>{{ $user->interest }}</h5></div>
                 </div>
             </div>
         </div>

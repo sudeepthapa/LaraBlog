@@ -37,7 +37,7 @@
             <div class="form-group">
                 <label for="body">Category</label>
 
-                <select name="category" class="form-control">
+                <select name="category" class="form-control my-custom-select">
                     <option value="">--Select--</option>
                     @foreach ($categories as $category)
                         <option value="{{$category->id}}">{{ $category->title }}</option>
@@ -73,5 +73,6 @@
     </div>
         </form>
 </div>    
-</div>   
+</div>
+
 @endsection
