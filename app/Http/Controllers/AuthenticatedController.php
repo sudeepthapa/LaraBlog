@@ -18,7 +18,7 @@ class AuthenticatedController extends Controller
     public function profile()
     {
         $user = Auth::user();
-        $posts = $user->posts()->where('title','Blog Title One')->get();
+        $posts = $user->posts;
         return view('pages.profile')->with('posts',$posts);
     }
 }

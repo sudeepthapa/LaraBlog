@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use App\Category;
 use Auth;
 
 class PostController extends Controller
@@ -29,8 +30,12 @@ class PostController extends Controller
     public function create()
     {
         // fetch all categories
+        $categories = Category::all();
+
         //send to view
-        return view('post.createpost');
+        return view('post.createpost',[
+            'categories'=>$categories
+        ]);
     }
 
     /**
@@ -59,6 +64,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->caption = $request->caption;
         $post->user_id = Auth::user()->id;
+        $post->category_id = $request->category;
         // $post->likes = $request->likes;
         $post->photo = 'storage/'.$file_path;
         $post->save();
@@ -104,29 +110,29 @@ class PostController extends Controller
             'body'=>'required',
             'caption'=>'required',
             // 'likes'=>'required',
-            'photo'=>'required',
            
         ]);   
 
-        // file handling
-        $file_name = time().'_'.$request->file('photo')->getClientOriginalName();;                                                                                          
-        // $post->photo = $file_name;                                                                                                                      
-        $file_path->$request->file('photo')->storeAs('photos', $file_name, 'public'); 
         $post = Post::find($id);
+
+         if(isset($request->photo)){
+             // file handling
+             $file_name = time().'_'.$request->file('photo')->getClientOriginalName();;                                                                                          
+             // $post->photo = $file_name;                                                                                                                      
+             $file_path->$request->file('photo')->storeAs('photos', $file_name, 'public'); 
+             $post->photo = 'storage/'.$file_path;
+             unlink($post->photo);                                                                                                
+         }else{
+              $post->photo = $post->photo;
+         }   
+
  
         $post->title = $request->title;
         $post->body = $request->body;
         $post->caption = $request->caption;
-        // $post->photo = $request->photo;
                                                                                                               
 
             // $file_path = $request->file('photo');                                                                                                              
-    
-          
-            $post->photo = 'storage/'.$file_path;                                                                                                
-                  
-
-
         $post->save();
         return redirect()->route('post.index');
     }

@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-center">
-                    <div><img style="height: 200px; width:200px; border-radius:50%;" src="https://www.pngitem.com/pimgs/m/11-118241_cute-anime-vampire-girl-cute-vampire-anime-girl.png" alt="profile"></div>
+                    <div><img style="height: 200px; width:200px; border-radius:50%;" src="{{ asset(Auth::user()->avatar)?asset(Auth::user()->avatar): 'https://www.pngitem.com/pimgs/m/11-118241_cute-anime-vampire-girl-cute-vampire-anime-girl.png' }}" alt="profile"></div>
                 </div>
             </div>
         </div>

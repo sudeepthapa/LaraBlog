@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.createpost');
+        return view('category.create');
     }
 
     /**
@@ -39,30 +39,15 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=>'required | min:5',
-            'body'=>'required',
-            'caption'=>'required',
-            // 'likes'=>'required',
-            'photo'=>'required',
-           
+            'title'=>'required | min:5'
         ]);   
-
-        // file handling
-        $file_name = time().'_'.$request->file('photo')->getClientOriginalName();
-
-        $file_path = $request->file('photo')->storeAs('photos', $file_name, 'public');
-        
-    
+           
         $category = new Category;
         $category->title = $request->title;
-        $category->body = $request->body;
-        $category->caption = $request->caption;
-        // $category->likes = $request->likes;
-        $category->photo = 'storage/'.$file_path;
         $category->save();
 
-        return redirect()->route('category.index')
-            ->with('success','Contact Added Successfully');
+        return back()
+            ->with('success','Category Added Successfully');
     }
 
     /**

@@ -14,7 +14,7 @@
                                     <h1>{{$post->title}}</h1>
                                     <p>{{$post->body}}</p>                        
                                     <div class="d-flex justify-content-between">
-                                        <div class="pr-5"><strong>{{ Carbon\Carbon::parse($post->created_at)->toDayDateTimeString()}}</strong></div>
+                                        <div class="pr-5"><strong>{{ $post->category->title }} || {{ Carbon\Carbon::parse($post->created_at)->toDayDateTimeString()}}</strong></div>
                                         <div class="pr-5"><strong> {{ $post->user->name }} </strong></div>
                                     </div>
                                 </div>
