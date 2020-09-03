@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('link')
 <li class="nav-item">
-<a class="nav-link" href="{{route('category.index')}}">Home</a>
-</li>   
+    <a class="nav-link" href="{{route('category.index')}}">Home</a>
+</li>
 @endsection
 @section('content')
 
@@ -11,7 +11,8 @@
         <div class="card-header">
             <h1 class="text-center">All posts</h1>
             <div class="d-flex justify-content-center">
-                <a type="button" href="{{route('post.create')}}" class="btn btn-primary btn-lg btn-block"><i class="fa fa-pencil-square-o fa-2x"></i> Create post</a>
+                <a type="button" href="{{route('post.create')}}" class="btn btn-primary btn-lg btn-block"><i
+                        class="fa fa-pencil-square-o fa-2x"></i> Create post</a>
             </div>
         </div>
         <div class="card m-2">
@@ -19,32 +20,29 @@
                 {{-- start of row --}}
                 <div class="row">
                     <div class="col-md-3">
-                        <img style="height:200px; width:200px;" src="https://cdn.akc.org/content/article-body-image/lab_puppy_dog_pictures.jpg" alt="profile">
+                        <img style="height:200px; width:200px;"
+                            src="https://cdn.akc.org/content/article-body-image/lab_puppy_dog_pictures.jpg"
+                            alt="profile">
                     </div>
                     <div class="col-md-9">
                         <h1>Lorem serum</h1>
-                        <p>Lorem ipsum dolor sit amet, sed a malesuada. Turpis velit adipiscing leo, per proin suspendisse tortor elit tincidunt, ipsum tincidunt non, scelerisque quam purus quam mi porttitor vitae. Libero ante turpis, sit justo et, lacus odio viverra nibh in. Fugiat rutrum, tellus congue, erat porro lobortis sapien penatibus sagittis vestibulum, congue est, lectus quam erat mauris est senectus. Tincidunt quisque libero elit ligula, ligula in quis nulla wisi nulla urna.</p>                        
+                        <p>Lorem ipsum dolor sit amet, sed a malesuada. Turpis velit adipiscing leo, per proin
+                            suspendisse tortor elit tincidunt, ipsum tincidunt non, scelerisque quam purus quam mi
+                            porttitor vitae. Libero ante turpis, sit justo et, lacus odio viverra nibh in. Fugiat
+                            rutrum, tellus congue, erat porro lobortis sapien penatibus sagittis vestibulum, congue est,
+                            lectus quam erat mauris est senectus. Tincidunt quisque libero elit ligula, ligula in quis
+                            nulla wisi nulla urna.</p>
                         <div class="d-flex justify-content-between">
                             <div class="pr-5"><strong>Date</strong></div>
                             <div class="pr-5"><strong>Author</strong></div>
-                         </div>
+                        </div>
                     </div>
-               
+
                 </div> {{-- end of row --}}
             </div> {{-- end of body  --}}
         </div>
-        
-       
+
+
     </div>
 </div>
-
-
-{{-- @foreach ($category as $item)
-    
-
-{{$item->title}}
-{{$item->photo}} 
-{{$item->body}}
-{{$item->caption}} --}}
-{{-- @endforeach --}}
 @endsection

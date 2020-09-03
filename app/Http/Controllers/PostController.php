@@ -46,7 +46,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $request->validate([
             'title'=>'required | min:5',
             'body'=>'required',
@@ -64,10 +63,16 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->caption = $request->caption;
         $post->user_id = Auth::user()->id;
-        $post->category_id = $request->category;
+
+        
         // $post->likes = $request->likes;
         $post->photo = 'storage/'.$file_path;
         $post->save();
+
+        //Many to Many Relationships between Post and Category
+
+        $categories = Category::find($request->category);
+        $post->categories()->attach($categories); 
 
         return redirect()->route('home.profile')
             ->with('success','Contact Added Successfully');
