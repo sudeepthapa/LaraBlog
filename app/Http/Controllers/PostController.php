@@ -6,6 +6,9 @@ use App\Post;
 use Illuminate\Http\Request;
 use App\Category;
 use Auth;
+use UxWeb\SweetAlert\SweetAlert;
+
+
 
 class PostController extends Controller
 {
@@ -73,6 +76,9 @@ class PostController extends Controller
 
         $categories = Category::find($request->category);
         $post->categories()->attach($categories); 
+
+        SweetAlert::message('Post Created Successfully!');
+
 
         return redirect()->route('home.profile')
             ->with('success','Contact Added Successfully');

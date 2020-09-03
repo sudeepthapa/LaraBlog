@@ -10,7 +10,8 @@ class PageController extends Controller
 {
     public function index(){
         $posts = Post::orderBy('created_at','desc')->get();
-        $count = Post::all()->count();   
+        $count = Post::all()->count(); 
+        alert()->message('You have been logged out.', 'Good bye!');
         return view('pages.homepage')->with('posts',$posts)->with('count', $count);
     }
 
